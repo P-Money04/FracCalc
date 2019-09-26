@@ -36,9 +36,18 @@ public class FracCalc
 	public static String produceAnswer(String input)
 	{
 		// TODO: Implement this method to produce and return the solution to the input
-		int val1 = Integer.parseInt(input.substring(0,1));
-		int val2 = Integer.parseInt(input.substring(2,3));
-		int total = substr + substr1;
+		int total;
+		int val1 = Integer.parseInt(input.substring(0, input.indexOf("+")));
+		int val2 = Integer.parseInt(input.substring(input.indexOf("+")+1, input.length()));;
+		if (input.contains("+")) {
+			total = val1 + val2;
+		} else if (input.contains("*")) {
+			total = val1 * val2;
+		} else if (input.contains("/")) {
+			total = val1/val2;
+		} else {
+			total = Integer.parseInt(input);
+		}
 		return ""+ total;
 	}
 	
