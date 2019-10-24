@@ -16,7 +16,6 @@ public class FracCalc
 		// with that input, printing the result
 		Scanner input = new Scanner(System.in);
 		String word = input.nextLine();
-		System.out.println(word);
 		System.out.println(produceAnswer(word));
 		
 	}
@@ -37,13 +36,21 @@ public class FracCalc
 	{
 		// TODO: Implement this method to produce and return the solution to the input
 		int total;
-		int val1 = Integer.parseInt(input.substring(0, input.indexOf("+")));
-		int val2 = Integer.parseInt(input.substring(input.indexOf("+")+1, input.length()));;
 		if (input.contains("+")) {
+			int val1 = Integer.parseInt(input.substring(0, input.indexOf("+")));
+			int val2 = Integer.parseInt(input.substring(input.indexOf("+")+1, input.length()));;
 			total = val1 + val2;
+		} else if (input.contains("-")) {
+			int val1 = Integer.parseInt(input.substring(0, input.LastIndexOf("-")));
+			int val2 = Integer.parseInt(input.substring(input.LastIndexOf("-")+1, input.length()));;
+			total = val1-val2;
 		} else if (input.contains("*")) {
-			total = val1 * val2;
+			int val1 = Integer.parseInt(input.substring(0, input.indexOf("*")));
+			int val2 = Integer.parseInt(input.substring(input.indexOf("*")+1, input.length()));;
+			total = val1*val2;
 		} else if (input.contains("/")) {
+			int val1 = Integer.parseInt(input.substring(0, input.indexOf("/")));
+			int val2 = Integer.parseInt(input.substring(input.indexOf("/")+1, input.length()));;
 			total = val1/val2;
 		} else {
 			total = Integer.parseInt(input);
