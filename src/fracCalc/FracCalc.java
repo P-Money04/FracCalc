@@ -38,19 +38,19 @@ public class FracCalc
 		int total;
 		if (input.contains("+")) {
 			int val1 = Integer.parseInt(input.substring(0, input.indexOf("+")));
-			int val2 = Integer.parseInt(input.substring(input.indexOf("+")+1, input.length()));;
+			int val2 = Integer.parseInt(input.substring(input.indexOf("+")+1, input.length()));
 			total = val1 + val2;
 		} else if (input.contains("-")) {
-			int val1 = Integer.parseInt(input.substring(0, input.LastIndexOf("-")));
-			int val2 = Integer.parseInt(input.substring(input.LastIndexOf("-")+1, input.length()));;
+			int val1 = Integer.parseInt(input.substring(0, input.indexOf("-")));
+			int val2 = Integer.parseInt(input.substring(input.indexOf("-")+1, input.length()));
 			total = val1-val2;
 		} else if (input.contains("*")) {
 			int val1 = Integer.parseInt(input.substring(0, input.indexOf("*")));
-			int val2 = Integer.parseInt(input.substring(input.indexOf("*")+1, input.length()));;
+			int val2 = Integer.parseInt(input.substring(input.indexOf("*")+1, input.length()));
 			total = val1*val2;
 		} else if (input.contains("/")) {
 			int val1 = Integer.parseInt(input.substring(0, input.indexOf("/")));
-			int val2 = Integer.parseInt(input.substring(input.indexOf("/")+1, input.length()));;
+			int val2 = Integer.parseInt(input.substring(input.indexOf("/")+1, input.length()));
 			total = val1/val2;
 		} else {
 			total = Integer.parseInt(input);
@@ -61,4 +61,16 @@ public class FracCalc
 	
 	// TODO: Fill in the space below with any helper methods that you think you will need
 
+	public static int negIndexOf(String a){
+		int index = a.lastIndexOf("-");
+		if (index == 0 || (index == a.length()-1)) {
+			return -1;
+		} else if (a.lastIndexOf("-") == a.length()-1 && charAt(int a.length()-2) == ("-")) {
+			index = a.length()-2;
+			return index;
+		} else {
+			return index;
+		}
+	}
+	
 }
