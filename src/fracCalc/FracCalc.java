@@ -41,8 +41,8 @@ public class FracCalc
 			int val2 = Integer.parseInt(input.substring(input.indexOf("+")+1, input.length()));
 			total = val1 + val2;
 		} else if (input.contains("-")) {
-			int val1 = Integer.parseInt(input.substring(0, input.indexOf("-")));
-			int val2 = Integer.parseInt(input.substring(input.indexOf("-")+1, input.length()));
+			int val1 = Integer.parseInt(input.substring(0, negIndexOf(input)));
+			int val2 = Integer.parseInt(input.substring(negIndexOf(input)+1, input.length()));
 			total = val1-val2;
 		} else if (input.contains("*")) {
 			int val1 = Integer.parseInt(input.substring(0, input.indexOf("*")));
@@ -65,10 +65,13 @@ public class FracCalc
 		int index = a.lastIndexOf("-");
 		if (index == 0 || (index == a.length()-1)) {
 			return -1;
-		} else if (a.lastIndexOf("-") == a.length()-1 && charAt(int a.length()-2) == ("-")) {
-			index = a.length()-2;
+		} else if(a.charAt(index - 1) == '-') {
+			index = index - 1;
 			return index;
-		} else {
+		} else if(a.contains("*") || a.contains("/") || a.contains("+")) {
+			return -1;
+		}
+		else {
 			return index;
 		}
 	}
